@@ -8,20 +8,22 @@ public class Main {
             String rounding1 = String.format("%.2f",array[i]);
             System.out.println(rounding1);
         }
-        System.out.println("-------------------------------------------------|");
-        double sumOfPositiveNumbersAfterCondition = 0;
-        double averageOfPositiveNumbersAfterCondition = 0;
+        System.out.println("------------------------------------------------------|");
+        int sumOfPositiveNumbersAfterCondition = 0;
+        double positiveNumbersAfterCondition = 0;
+        boolean proverka = false;
         for (double elementOfArray : array) {
-            if(elementOfArray > 0) {
-                sumOfPositiveNumbersAfterCondition += elementOfArray;
+            if(elementOfArray < 0) {
+                proverka = true;
+            } else if (elementOfArray > 0 && proverka) {
+                positiveNumbersAfterCondition += elementOfArray;
+                sumOfPositiveNumbersAfterCondition++;
+                System.out.println(elementOfArray);
             }
+
         }
-        String rounding2 = String.format("%.2f",sumOfPositiveNumbersAfterCondition);
-        System.out.println("Sum of positive numbers after condition: " + rounding2);
-        averageOfPositiveNumbersAfterCondition = sumOfPositiveNumbersAfterCondition/array.length;
-        String rounding3 = String.format("%.2f", averageOfPositiveNumbersAfterCondition);
-        System.out.println("Average of positive numbers after condition: " + rounding3);
-        System.out.println("-------------------------------------------------|");
+        System.out.println("The value of the arithmetic mean is: " + positiveNumbersAfterCondition/sumOfPositiveNumbersAfterCondition);
+        System.out.println("------------------------------------------------------|");
 
         System.out.println(Arrays.toString(array));
         for (int left = 0; left < array.length; left++) {
